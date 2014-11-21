@@ -127,7 +127,7 @@ RUN export PROTO_BUF_VERSION=2.5.0 \
 ## RHIPE
 USER tessera
 
-RUN cd /home/tessera
+RUN cd /home/tessera \
 &&  export RHIPE_VERSION=Rhipe_0.75.0_cdh5mr2 \
 &&  export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH \
 &&  export PKG_CONFIG_PATH=/usr/local/lib \
