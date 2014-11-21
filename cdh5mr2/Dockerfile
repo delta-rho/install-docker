@@ -65,6 +65,8 @@ RUN touch /home/tessera/.Renviron \
 
 RUN chown -R tessera:tessera /home/tessera
 
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
 RUN echo '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/' | tee -a  /etc/ld.so.conf.d/jre.conf \
 &&  echo '/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/' | tee -a  /etc/ld.so.conf.d/jre.conf \
 &&  echo '/usr/lib/hadoop/lib' | tee -a  /etc/ld.so.conf.d/hadoop.conf
