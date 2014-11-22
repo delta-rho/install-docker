@@ -143,7 +143,8 @@ RUN cd /home/tessera \
 &&  chmod 755 /home/tessera/rhRunner.sh
 
 ## do initial downloading of maven artifacts
-RUN git clone --depth=50 --recursive --branch=dev git://github.com/hafen/RHIPE.git
+RUN cd /home/tessera
+&&  git clone --depth=50 --recursive --branch=dev git://github.com/hafen/RHIPE.git
 &&  cd RHIPE
 &&  rm -rf /home/tessera/.m2
 &&  mvn package --fail-never
