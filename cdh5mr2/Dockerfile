@@ -7,7 +7,7 @@ RUN apt-get update -q -q && apt-get dist-upgrade --yes --force-yes
 
 # install sudo
 RUN apt-get update -q -q \
-&&  apt-get install -y sudo vim wget curl
+&&  apt-get install -y sudo vim wget curl git ant maven
 
 RUN su -c "useradd tessera -s /bin/bash -m" \
 &&  echo "tessera:tessera" | chpasswd
@@ -142,12 +142,13 @@ RUN cd /home/tessera \
 &&  chmod 755 /home/tessera \
 &&  chmod 755 /home/tessera/rhRunner.sh
 
-USER root
-
-## components needed to build RHIPE from source
-RUN apt-get -y install git ant maven
-
-USER tessera
+## do initial downloading of maven artifacts
+RUN git clone --depth=50 --recursive --branch=dev git://github.com/hafen/RHIPE.git
+&&  cd RHIPE
+&&  rm -rf /home/tessera/.m2
+&&  mvn package --fail-never
+&&  cd ..
+&&  rm -rf RHIPE
 
 ## more packages
 RUN R -e "install.packages('devtools', repos='http://cran.rstudio.com/')" \
