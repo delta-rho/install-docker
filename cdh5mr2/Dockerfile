@@ -53,15 +53,15 @@ RUN touch /home/tessera/.Renviron \
 &&  echo 'LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' | tee -a /home/tessera/.Renviron \
 &&  echo 'RHIPE_RUNNER=/home/tessera/rhRunner.sh' | tee -a /home/tessera/.Renviron \
 &&  echo 'JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64' | tee -a /home/tessera/.Renviron \
-&&  echo export 'HADOOP=/usr/lib/hadoop' | tee -a /home/tessera/.bashrc \
-&&  echo export 'HADOOP_HOME=/usr/lib/hadoop' | tee -a /home/tessera/.bashrc \
-&&  echo export 'HADOOP_CONF_DIR=/etc/hadoop/conf' | tee -a /home/tessera/.bashrc \
-&&  echo export 'HADOOP_BIN=$HADOOP_HOME/bin' | tee -a /home/tessera/.bashrc \
-&&  echo export 'HADOOP_OPTS=-Djava.awt.headless=true' | tee -a /home/tessera/.bashrc \
-&&  echo export 'HADOOP_LIBS=/etc/hadoop/conf:/usr/lib/hadoop/lib/:/usr/lib/hadoop/.//:/usr/lib/hadoop-hdfs/./:/usr/lib/hadoop-hdfs/lib/:/usr/lib/hadoop-hdfs/.//:/usr/lib/hadoop-yarn/lib/:/usr/lib/hadoop-yarn/.//:/usr/lib/hadoop-mapreduce/lib/:/usr/lib/hadoop-mapreduce/.//' | tee -a /home/tessera/.bashrc \
-&&  echo export 'LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' | tee -a /home/tessera/.bashrc \
-&&  echo export 'RHIPE_RUNNER=/home/tessera/rhRunner.sh' | tee -a /home/tessera/.bashrc \
-&&  echo export 'JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64' | tee -a /home/tessera/.bashrc
+&&  echo export 'HADOOP=/usr/lib/hadoop' | tee -a /etc/profile \
+&&  echo export 'HADOOP_HOME=/usr/lib/hadoop' | tee -a  \
+&&  echo export 'HADOOP_CONF_DIR=/etc/hadoop/conf' | tee -a /etc/profile \
+&&  echo export 'HADOOP_BIN=$HADOOP_HOME/bin' | tee -a /etc/profile \
+&&  echo export 'HADOOP_OPTS=-Djava.awt.headless=true' | tee -a /etc/profile \
+&&  echo export 'HADOOP_LIBS=/etc/hadoop/conf:/usr/lib/hadoop/lib/:/usr/lib/hadoop/.//:/usr/lib/hadoop-hdfs/./:/usr/lib/hadoop-hdfs/lib/:/usr/lib/hadoop-hdfs/.//:/usr/lib/hadoop-yarn/lib/:/usr/lib/hadoop-yarn/.//:/usr/lib/hadoop-mapreduce/lib/:/usr/lib/hadoop-mapreduce/.//' | tee -a /etc/profile \
+&&  echo export 'LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' | tee -a /etc/profile \
+&&  echo export 'RHIPE_RUNNER=/home/tessera/rhRunner.sh' | tee -a /etc/profile \
+&&  echo export 'JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64' | tee -a /etc/profile
 
 RUN chown -R tessera:tessera /home/tessera
 
